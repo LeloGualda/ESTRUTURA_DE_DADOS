@@ -1,0 +1,41 @@
+//Código para Ordenar um vetor de 10 inteiros.
+# include<stdio.h>
+# include<stdlib.h>
+# define TAM 10
+
+int Separa (int *v, int inicio, int fim) {
+    int pivo = v[fim], i, j = inicio, valor;
+    for(i=inicio; i<fim; i++) {
+        if(v[i] < pivo) {
+            valor = v[i];
+            v[i] = v[j];
+            v[j] = valor;
+            j++;
+        }
+    }
+    if(pivo <= v[j]) {
+        v[fim] = v[j];
+        v[j] = pivo;
+    }
+    return j;
+}
+
+void quick(int *vetor, int inicio, int fim) {
+    if(inicio >= fim)
+        return;
+    int pivoIndex = Separa(vetor, inicio, fim);
+    quick(vetor, inicio, pivoIndex-1);
+    quick(vetor, pivoIndex+1, fim);
+}
+
+int main(){
+    int vet[TAM],i;                 //Declara a variavel i e o vetor vet com {{subst:Número2palavra2|10}} posições de 0 a 9.
+    printf("Digite 10 numeros: ");  //Imprime na tela a mensagem.
+    for(i=0;i<TAM;i++)              //Percorre todo os espaços do vetor
+        scanf("%d",&vet[i]);        //armazena os dados coletados todo no vetor
+    quick(vet,0,TAM-1);             //Chama a função quick com os tres parametros: o vetor, 0 o inicio do vetor e o fim.
+    for(i=0;i<TAM;i++)              //percorre o vetor
+        printf("%d ",vet[i]);       //imprime o vetor reorganizado
+    printf("\n");
+    return 0;
+}

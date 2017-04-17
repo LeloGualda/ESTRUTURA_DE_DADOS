@@ -14,14 +14,9 @@ int 	menu();
 int 	DigiteValor();
 
 int main()
-{	
-
-	for(int i=0;i<N;i++)MinhaLista[i] =	0;
-	
+{	for(int i=0;i<N;i++)MinhaLista[i] =	0;
 	int opcao;
-	
-	do { 	opcao = menu();
-	
+	do { 	opcao = menu();	
 			switch (opcao) 
 			{
 				case 0:
@@ -39,16 +34,14 @@ int main()
 				default: printf ("Invalido");
 			}
 		} while (opcao != 0);
-
-		}
-
+}
 int 	DigiteValor()
 {		int opc = 0; 
 		printf("\n *------------- \t DIGITE O VALOR \t -------------* \n\n");			
 		scanf("%d",&opc);
 		return opc;
 }
-int 	menu() 
+int		menu() 
 {
 	printf("\n *------------- \t SUAS OPCOES \t\t -------------* \n");
 	printf("\n\n\t 1 \t INSERIR");
@@ -58,20 +51,17 @@ int 	menu()
 }
 
 
-void 	Inserir()
+void	Inserir()
 {
 	printf("\n *------------- \t VAMOS ISERIR \t\t -------------* \n");
 	if(cheio == 1) {printf("\n CHEIO \n");return;}
 	 MinhaLista[u++] = DigiteValor();
 		u = u % N;
 		cheio = u == p ? 1:0;
-		Imprimir();
-	
+		Imprimir();	
 }
-
 void 	Consumir()
-{
-	MinhaLista[p++] = 0;
+{	MinhaLista[p++] = 0;
 	p = p % N;
 	printf("\n\n *------------- \t VALOR CONSUMIDO! \t\t -------------* \n\n");
 	Imprimir();
@@ -79,11 +69,11 @@ void 	Consumir()
 
 void	Imprimir()
 {			printf("\n\n *------------- \t  - - - - - - - - \t\t -------------* \n\n");
-		for(int i=0;i<N;i++)printf("%d \t",MinhaLista[i]);
-		printf("\n");
-		for(int i=0;i<u;i++)printf("- \t");
-		printf("u \n");
-		for(int i=0;i<p;i++)printf("- \t");
-		printf("p");
+				for(int i=0;i<N;i++)printf("%d \t",MinhaLista[i]);
+			printf("\n");
+				for(int i=0;i<u;i++)printf("- \t");
+			printf("u \n");
+				for(int i=0;i<p;i++)printf("- \t");
+			printf("p");
 			printf("\n\n *------------- \t  - - - - - - - - \t\t -------------* \n\n");
 }
