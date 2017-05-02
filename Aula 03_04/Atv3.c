@@ -34,4 +34,4 @@ void sortear()
 	for (int i = 0; i<N;i++){
 			ary[i] =rand() % 10 + 1;
 	}
-}
+} 	 	 	
